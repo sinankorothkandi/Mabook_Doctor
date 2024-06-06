@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>479536336375-69g0be56thftn276ont04u6i8hc7f7cd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.479536336375-69g0be56thftn276ont04u6i8hc7f7cd</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>479536336375-k7dqd5s0k7mb3vp0ivat0n789ojahvrg.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD4rH463zE95kcNWbH17JaJa24SflYXkVs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>479536336375</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mabookDoctor.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>mabook-ea750</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mabook-ea750.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:479536336375:ios:6254009346c547754632f2</string>
+</dict>
+</plist>
