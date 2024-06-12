@@ -6,6 +6,7 @@ import 'package:mabook_doctor/Firebase/firebase_options.dart';
 import 'package:mabook_doctor/features/Login/controller/login_controller.dart';
 import 'package:mabook_doctor/features/Login/model/user_model.dart';
 import 'package:mabook_doctor/features/appointments/Controller/appoinment_controller.dart';
+import 'package:mabook_doctor/features/chat/controller/chat_controller.dart';
 import 'package:mabook_doctor/features/splashScreen/splashscreen.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => LoginController()),
-                ChangeNotifierProvider(create: (context) => AppointmentController()),
+                ChangeNotifierProvider(create: (context) => AppoinmentController()),
+                ChangeNotifierProvider(create: (context) => ChatController()),
 
       ],
       child: const MaterialApp(

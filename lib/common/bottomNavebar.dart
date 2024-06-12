@@ -2,11 +2,10 @@ import 'package:dot_curved_bottom_nav/dot_curved_bottom_nav.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:mabook_doctor/common/colors.dart';
-
-import 'package:mabook_doctor/features/chat/view/chat_Home.dart';
+import 'package:mabook_doctor/features/chat/view/chat_page.dart';
 import 'package:mabook_doctor/features/Home/view/home.dart';
 import 'package:mabook_doctor/features/appointments/view/appoinment_display/appointments.dart';
-import 'package:mabook_doctor/features/Profile/profil.dart';
+import 'package:mabook_doctor/features/Profile/view/profil.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({
@@ -24,7 +23,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _pages = [
     const HomePage(),
     const Appointments(),
-    const ChatHome(),
+    const ChatPage(),
     const ProfilePage(),
   ];
   @override

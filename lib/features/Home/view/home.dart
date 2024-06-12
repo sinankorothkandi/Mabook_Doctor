@@ -11,14 +11,8 @@ class HomePage extends StatelessWidget {
     final ctrl = Provider.of<LoginController>(context);
 
     if (!ctrl.isUserLoaded) {
-      // Check if user data is loaded
       ctrl.loadUserData();
-      return const Scaffold(
-        backgroundColor: white,
-        body: Center(
-          child: CircularProgressIndicator(), 
-        ),
-      );
+ 
     }
     return Scaffold(
       backgroundColor: white,

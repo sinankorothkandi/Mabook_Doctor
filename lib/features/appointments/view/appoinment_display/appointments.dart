@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mabook_doctor/common/colors.dart';
 import 'package:mabook_doctor/features/Login/controller/login_controller.dart';
-import 'package:mabook_doctor/features/appointments/Controller/appoinment_controller.dart';
 import 'package:mabook_doctor/features/appointments/view/appoinment_display/appointment_display_widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +10,6 @@ class Appointments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final ctrl = Provider.of<AppointmentController>(context);
 final Loginctrl = Provider.of<LoginController>(context);
     return Scaffold(
       backgroundColor: white,
@@ -25,8 +23,8 @@ final Loginctrl = Provider.of<LoginController>(context);
       ),
       body: Center(
         child: DefaultTabController(
-          length: 3,
-          initialIndex: 1,
+          length: 2,
+          initialIndex: 0,
           child: Column(
             children: [
               TabBar(
@@ -41,16 +39,12 @@ final Loginctrl = Provider.of<LoginController>(context);
                   fontSize: 16,
                 ),
                 tabs: const [
-                  Tab(
-                    child: Text(
-                      'Compleated',
-                    ),
-                  ),
+                 
                   Tab(
                     child: Text('Upcoming'),
                   ),
                   Tab(
-                    child: Text('Canceled'),
+                    child: Text('Compleated'),
                   ),
                 ],
               ),
@@ -58,13 +52,12 @@ final Loginctrl = Provider.of<LoginController>(context);
                 child: TabBarView(
                   children: [
                     //compleated tab bar view
-                    compleatedTabBarView(),
+                   
 
                     // upcoming tab Bar View
-                    UpcomingtabBarView(ctrl,Loginctrl),
-
-                    //canceledTabBarView
-                    canceledTabBarView(),
+                    UpcomingtabBarView(Loginctrl),
+                     compleatedTabBarView(Loginctrl),
+                  
                   ],
                 ),
               ),

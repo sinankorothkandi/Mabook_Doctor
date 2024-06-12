@@ -1,12 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mabook_doctor/common/colors.dart';
 import 'package:mabook_doctor/features/Login/View/login_screen.dart';
 import 'package:mabook_doctor/features/Login/controller/login_controller.dart';
-import 'package:mabook_doctor/features/Profile/profile_details.dart';
+import 'package:mabook_doctor/features/Profile/view/profile_details.dart';
+import 'package:mabook_doctor/features/Profile/view/sub/app_info.dart/appinfo.dart';
+import 'package:mabook_doctor/features/Profile/view/sub/appointments.dart';
+import 'package:mabook_doctor/features/Profile/view/sub/privacy%20police/privacy_policy.dart';
+import 'package:mabook_doctor/features/Profile/view/sub/terms%20and%20conditions/t_and_c.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -178,18 +183,16 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           SizedBox(
-            height: 50,
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: ListTile(
               onTap: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (_) => hospital_details()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => AppointmentsScreen()));
               },
-              leading: Icon(Icons.list_alt_rounded, color: blue),
+              leading: Icon(EneftyIcons.document_outline, color: blue),
               title: Text(
                 'Appointments',
                 style: TextStyle(
@@ -200,6 +203,25 @@ class _ProfilePageState extends State<ProfilePage> {
               trailing: Icon(Icons.navigate_next, color: blue),
             ),
           ),
+          // SizedBox(
+          //   height: 14,
+          // ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 25),
+          //   child: ListTile(
+          //     onTap: () {
+          //       //  Navigator.push(
+          //       //       context, MaterialPageRoute
+          //       //   (builder:(_)=> select_deparment() ));
+          //     },
+          //     leading: Icon(EneftyIcons.info_circle_outline, color: blue),
+          //     title: Text(
+          //       'Help Center',
+          //       style: TextStyle(color: blue, fontSize: 20),
+          //     ),
+          //     trailing: Icon(Icons.navigate_next, color: blue),
+          //   ),
+          // ),
           SizedBox(
             height: 14,
           ),
@@ -207,13 +229,12 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: ListTile(
               onTap: () {
-                //  Navigator.push(
-                //       context, MaterialPageRoute
-                //   (builder:(_)=> select_deparment() ));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => TermsandConditions()));
               },
-              leading: Icon(Icons.help_outline_outlined, color: blue),
+              leading: Icon(EneftyIcons.document_2_outline, color: blue),
               title: Text(
-                'Help Center',
+                'Terms and Conditions',
                 style: TextStyle(color: blue, fontSize: 20),
               ),
               trailing: Icon(Icons.navigate_next, color: blue),
@@ -226,14 +247,30 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: ListTile(
               onTap: () {
-                // Navigator.pushReplacement(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (_) => staff_List()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => PrivacyPolicyScreen()));
               },
-              leading: Icon(Icons.feedback_outlined, color: blue),
+              leading: Icon(EneftyIcons.security_outline, color: blue),
               title: Text(
-                'User Feedback',
+                'Privacy Policy',
+                style: TextStyle(color: blue, fontSize: 20),
+              ),
+              trailing: Icon(Icons.navigate_next, color: blue),
+            ),
+          ),
+          SizedBox(
+            height: 14,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: ListTile(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => AppInfo()));
+              },
+              leading: Icon(EneftyIcons.information_outline, color: blue),
+              title: Text(
+                'App Info',
                 style: TextStyle(color: blue, fontSize: 20),
               ),
               trailing: Icon(Icons.navigate_next, color: blue),
@@ -248,7 +285,7 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: () {
                 showSignOutDialog(context);
               },
-              leading: Icon(Icons.login_outlined, color: blue),
+              leading: Icon(EneftyIcons.logout_2_outline, color: blue),
               title: Text(
                 'Logout',
                 style: TextStyle(color: blue, fontSize: 20),

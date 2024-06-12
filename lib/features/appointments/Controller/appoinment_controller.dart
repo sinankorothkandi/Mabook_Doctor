@@ -1,27 +1,42 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mabook_doctor/features/Login/controller/login_controller.dart';
-import 'package:provider/provider.dart';
 
-class AppointmentController extends ChangeNotifier {
+class AppoinmentController extends ChangeNotifier {
+  final PrescriptionFormKey = GlobalKey<FormState>();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  
-//  getappointmentData(LoginController Loginctrl) async {
-//     try {
-//       QuerySnapshot querySnapshot = await _firestore
-//           .collection('appoinmentsCollection')
-//           .where('doctorid', isEqualTo:Loginctrl.userModel.doctorId )
-//           .get();
-//       if (querySnapshot.docs.isNotEmpty) {
-//         DocumentSnapshot userDoc = querySnapshot.docs.first;
-//         Map<String, dynamic> data = userDoc.data() as Map<String, dynamic>;
-//       String  doctor = data['doctor'];
-//        String date = data['date'];
-//       } else {
-//         print("Error No user found with the provided ID.");
-//       }
-//     } catch (e) {
-//       print('Error${e.toString()}');
-//     }
-// }
+  final TextEditingController prescriptionController = TextEditingController();
+  final TextEditingController examinationsController = TextEditingController();
+  final TextEditingController advanceController = TextEditingController();
+
+  Future<void> addappoinmentToFirebase(
+      userdatas, appointmentData, doctorData, bool isCompleated,context) async {
+    if (PrescriptionFormKey.currentState!.validate()) {
+      try {
+        print('================Eeeeeee:');
+        print(appointmentData['appointmentId']);
+
+        await _firestore
+            .collection('appoinmentsCollection')
+            .doc(appointmentData['appointmentId'])
+            .update({
+          'disease': appointmentData['disease'],
+          'date': appointmentData['date'],
+          'token': appointmentData['token'],
+          'paid': appointmentData['paid'],
+          'doctorid': appointmentData['doctorid'],
+          'userid': userdatas['id'],
+          'doctorData': doctorData,
+          'userData': userdatas,
+          'prescription ': prescriptionController.text,
+          'Examinations': examinationsController.text,
+          'Advance ': advanceController.text,
+          'iscanceled': false,
+          'isCompleated': isCompleated = true,
+        });
+        Navigator.pop(context);
+      } catch (e) {
+        print('================Error booking appoinmet : $e');
+      }
+    }
+  }
 }
